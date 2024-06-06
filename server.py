@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import os.path
@@ -9,6 +10,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Database configuration
 DB_HOST = "ec2-65-1-12-129.ap-south-1.compute.amazonaws.com"
@@ -39,7 +41,7 @@ def get_gmail_creds():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                "C:/Users/annav/Desktop/zohoTicketing/clientsecret.json", SCOPES
+                "C:/Users/annav/Desktop/zohoTicketing/hariclient.json", SCOPES
             )
             creds = flow.run_local_server(port=54543)
             # Save the credentials for the next run

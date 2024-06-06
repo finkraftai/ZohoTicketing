@@ -1,6 +1,5 @@
-// src/EmailForm.js
 import React, { useState } from 'react';
-import './App.css'
+import './App.css';
 
 const EmailForm = () => {
   const [formData, setFormData] = useState({
@@ -19,10 +18,11 @@ const EmailForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Make the API call here
-    fetch('http://localhost:5000/add_user', {
+    fetch('https://85cd-171-76-87-74.ngrok-free.app/add_user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        "ngrok-skip-browser-warning": "69420",
       },
       body: JSON.stringify(formData),
     })
@@ -45,18 +45,17 @@ const EmailForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            placeholder=" ENTER NAME"
+            placeholder="ENTER NAME"
           />
         </label>
         <label>
-
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
-            placeholder='ENTER EMAIL ID'
+            placeholder="ENTER EMAIL ID"
           />
         </label>
         <button type="submit">Submit</button>

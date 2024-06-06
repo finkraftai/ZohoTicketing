@@ -29,8 +29,9 @@ LABELS = ["open", "close", "onhold"]
 
 # List of users with their respective credential files
 USERS = [
-    {'name': 'Punit', 'credentials': 'token.json', 'email': 'punit@kgrp.in'},
-    {'name': 'sudhakar', 'credentials': 'copy.json', 'email': 'annavarisudhakar@gmail.com'}
+    # {'name': 'Punit', 'credentials': 'token.json', 'email': 'punit@kgrp.in'},
+    {'name': 'hari', 'credentials': 'hari.json', 'email': 'harinarayananpari@gmail.com'}
+
 ]
 
 # Functions for Gmail API and database operations
@@ -224,7 +225,7 @@ def continuously_fetch_emails() -> None:
 
 def main_fetch_emails(creds: Credentials, user_email: str, last_fetch_time: datetime) -> bool:
     try:
-        from_address_filters = ['annavarisudhakar@gmail.com','meenal@kgrp.in']
+        from_address_filters = ['@gmail.com',]
         service = get_gmail_service(creds)
         
         # Convert last fetch time to epoch timestamp
